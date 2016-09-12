@@ -40,12 +40,11 @@ export default class Upload extends React.Component {
     _uploadFile(){
         const selectedFiles = document.getElementById('upload').files;
         const self = this;
-        for (let file in selectedFiles){
-            let metadata = {
-                contentType: 'image/jpeg'
-            };
+		let metadata = {};
 
+        for (let file in selectedFiles){
             const eachFile = selectedFiles[file];
+			metadata.contentType = eachFile.type;
             const uploadTask = storageRef.child('images/' + eachFile.name).put(eachFile, metadata);
 
             uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, function(snapshot) {
@@ -53,9 +52,9 @@ export default class Upload extends React.Component {
                 self.setState({status: progress})
 
                 switch (snapshot.state) {
-                    case firebase.storage.TaskState.PAUSED: // or 'paused'
+                    case firebase.storage.TaskState.PAUSED:
                     break;
-                    case firebase.storage.TaskState.RUNNING: // or 'running'
+                    case firebase.storage.TaskState.RUNNING:
                     break;
                 }
 
