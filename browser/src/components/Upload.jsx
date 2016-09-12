@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { Component, PropTypes }from 'react';
 import {render} from 'react-dom';
 import { storageRef } from '../../firebase';
+import Button from './Button';
 
-export default class Upload extends React.Component {
+export default class Upload extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -21,8 +22,8 @@ export default class Upload extends React.Component {
             <div>
                 <p>Total Selected Files: {this.state.filesNum}</p>
                 <input className="hidden" id="upload" type="file" multiple onChange={this.updateFilesNum}></input>
-                <button className="buttons" id="select-files" onClick={this.selectFiles}>Select Files</button>
-                <button className="buttons" type="submit" onClick={this.uploadFile}>Upload Now</button>
+                <Button class="buttons" id="select-files" click={this.selectFiles} text="Select Files" />
+                <Button class="buttons" type="submit" click={this.uploadFile} text="Upload Now" />
                 <p>Upload Status: {this.state.status}  % done</p>
             </div>
 		)
