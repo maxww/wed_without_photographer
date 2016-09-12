@@ -1,0 +1,11 @@
+.numbers {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.buttons {
+    background-color: gray;
+    width: 25%;
+    height: 16.6%;
+}
