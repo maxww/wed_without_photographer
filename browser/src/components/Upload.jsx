@@ -6,20 +6,36 @@ export default class Upload extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-            status: "0"
+            status: "0",
+            filesNum: 0
 		}
+
         this.uploadFile = this._uploadFile.bind(this);
+        this.selectFiles = this._selectFiles.bind(this);
+        this.updateFilesNum = this._updateFilesNum.bind(this);
 	}
+
 
 	render() {
 		return (
             <div>
-                <input id="upload" type="file" multiple></input>
-                <button type="submit" onClick={this.uploadFile}>Upload Now</button>
+                <p>Total Selected Files: {this.state.filesNum}</p>
+                <input className="hidden" id="upload" type="file" multiple onChange={this.updateFilesNum}></input>
+                <button className="buttons" id="select-files" onClick={this.selectFiles}>Select Files</button>
+                <button className="buttons" type="submit" onClick={this.uploadFile}>Upload Now</button>
                 <p>Upload Status: {this.state.status}  % done</p>
             </div>
 		)
 	}
+    _selectFiles(){
+        const input = document.getElementById('upload');
+        input.click()
+    }
+
+    _updateFilesNum(){
+        const input = document.getElementById('upload');
+        this.setState({filesNum: input.files.length})
+    }
 
     _uploadFile(){
         const selectedFiles = document.getElementById('upload').files;
@@ -42,7 +58,7 @@ export default class Upload extends React.Component {
                     case firebase.storage.TaskState.RUNNING: // or 'running'
                     break;
                 }
-                
+
             }, function(error) {
                 switch (error.code) {
                     case 'storage/unauthorized':

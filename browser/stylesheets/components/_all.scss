@@ -1,9 +1,5 @@
 @import 'buttons';
-
-.calc {
-    width: 33%;
-    font-size: 250%;
-}
+@import 'input';
 @media (min-width:320px) and (max-width:1199px) {
     .calc {
         width: 100%;
