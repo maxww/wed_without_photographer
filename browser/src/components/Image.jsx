@@ -7,9 +7,7 @@ export default class Image extends Component {
     }
     render(){
         return (
-            <div className={this.props.class}>
-                <img  className="thumb-image" src={this.props.src}></img>
-            </div>
+            <img  className="thumb-image" src={this.props.src}></img>
         )
     }
 }

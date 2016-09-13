@@ -10,12 +10,13 @@ export default class Upload extends Component {
 		this.state = {
             status: "0",
             filesNum: 0,
-			uploaded: [],
+			previews: [],
+			message: "",
 		}
-		this.uploaded = [];
+		this.previews = [];
         this.uploadFile = this._uploadFile.bind(this);
         this.selectFiles = this._selectFiles.bind(this);
-        this.updateFilesNum = this._updateFilesNum.bind(this);
+        this.previewFiles = this._previewFiles.bind(this);
 		this.renderImages = this._renderImages.bind(this);
 	}
 
@@ -24,38 +25,69 @@ export default class Upload extends Component {
 		return (
             <div>
                 <p>Total Selected Files: {this.state.filesNum}</p>
-                <input className="hidden" id="upload" type="file" multiple onChange={this.updateFilesNum}></input>
+                <input className="hidden" id="upload" type="file" multiple onChange={this.previewFiles}></input>
                 <Button class="buttons" id="select-files" click={this.selectFiles} text="Select Files" />
                 <Button class="buttons" type="submit" click={this.uploadFile} text="Upload Now" />
                 <p>Upload Status: {this.state.status}  % done</p>
-				<p>What You Uploaded:</p>
+				<p>{this.state.message}</p>
 				<div className="preview">
 					{this.renderImages()}
 				</div>
             </div>
 		)
 	}
+
+
 	_renderImages(){
-		return this.state.uploaded.map((script, index)=>{
-			return <Image class="thumb-block" src={script} key={index}/>
+		console.log("rendering")
+		return this.state.previews.map((file, index)=>{
+			return (
+				<div className="thumb-block" key={index}>
+					<Image src={file.src} />
+					<div className="mini-menu">...</div>
+				</div>
+			)
 		})
 	}
 
     _selectFiles(){
         const input = document.getElementById('upload');
-        input.click()
+        input.click();
     }
 
-    _updateFilesNum(){
-        const input = document.getElementById('upload');
-        this.setState({filesNum: input.files.length})
+    _previewFiles(event){
+		event.preventDefault();
+
+        const files = event.target.files;
+		this.setState({filesNum: files.length, message:"What You Selected:"});
+		const self = this;
+
+		function readAndPreview(file){
+			const reader = new FileReader();
+			reader.addEventListener("load", function(){
+				let image = new Image();
+				image.title = file.name;
+				image.src = this.result;
+				self.previews.push(image);
+				self.setState({previews: self.previews})
+			})
+			reader.readAsDataURL(file);
+		}
+
+		if (files){
+			for (let file in files){
+				if (typeof files[file] === "object"){
+					readAndPreview(files[file]);
+				}
+			}
+		}
     }
 
     _uploadFile(){
         const selectedFiles = document.getElementById('upload').files;
         const self = this;
 		let metadata = {};
-
+		this.setState({message:"What You Uploaded:"})
         for (let file in selectedFiles){
             const eachFile = selectedFiles[file];
 			metadata.contentType = eachFile.type;
@@ -84,8 +116,9 @@ export default class Upload extends Component {
             }, function() {
   				// Upload completed successfully, now we can get the download URL
   				const downloadURL = uploadTask.snapshot.downloadURL;
-				self.uploaded.push(downloadURL)
-				self.setState({uploaded: self.uploaded})
+				let imageFile = {src: downloadURL};
+				if (!self.previews.indexOf(imageFile)) self.previews.push(imageFile);
+				self.setState({previews: self.previews})
 			});
         }
 
