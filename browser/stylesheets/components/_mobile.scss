@@ -1,0 +1,15 @@
+@media only screen and (min-device-width: 320px) and (max-device-width: 773px) {
+    #app {
+        width: 100%;
+    }
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 773px) and (orientation: portrait) {
+    #app {
+        font-size: 450%;
+    }
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 773px) and (orientation: landscape) {
+    #app {
+        font-size: 250%;
+    }
+}

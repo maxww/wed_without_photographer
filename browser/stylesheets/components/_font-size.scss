@@ -1,0 +1,33 @@
+/*           */
+/* font size */
+/*           */
+.title-font {
+    font-size: 170%;
+}
+
+.name-font {
+    font-size: 150%;
+}
+
+.category-font {
+    font-size: 130%;
+}
+
+.description-font {
+    font-size: 110%;
+}
+
+.paragraph-font {
+    font-size: 100%;
+
+    &.organization {
+        font-weight: bold;
+    }
+}
+
+.category-font,
+.name-font,
+.title-font {
+    font-weight: bold;
+    margin-top: 30px;
+}

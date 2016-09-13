@@ -1,9 +1,11 @@
+@import 'colors';
 @import 'buttons';
 @import 'input';
 @import 'image';
-@media (min-width:320px) and (max-width:1199px) {
-    #app {
-        width: 100%;
-        font-size: 350%;
-    }
+@import 'mobile';
+
+#app {
+    background-color: $offwhite;
+    height: 100%;
+    font-family: raleway;
 }

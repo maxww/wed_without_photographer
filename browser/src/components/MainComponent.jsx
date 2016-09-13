@@ -12,7 +12,7 @@ export default class MainComponent extends React.Component {
 	render() {
 		return (
 			<div className="">
-				<h1>Welcome</h1>
+				<p className="title-font">Welcome</p>
 				<Upload/>
 			</div>
 		)
