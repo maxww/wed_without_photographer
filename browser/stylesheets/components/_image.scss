@@ -1,11 +1,17 @@
 .preview {
+    width: 100%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
 
-.thumb {
+.thumb-block {
     padding: 2%;
-    width: 48%;
-    height: 23%;
+    width: 46%;
+    height: 21%;
+}
+
+.thumb-image {
+    width: 100%;
+    max-height: 100%;
 }

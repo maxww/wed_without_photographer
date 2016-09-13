@@ -37,9 +37,7 @@ export default class Upload extends Component {
 	}
 	_renderImages(){
 		return this.state.uploaded.map((script, index)=>{
-			console.log("map",script, index)
-			return <Image class="thumb" src={script} key={index}/>
-
+			return <Image class="thumb-block" src={script} key={index}/>
 		})
 	}
 
