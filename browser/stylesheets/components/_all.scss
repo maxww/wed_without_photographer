@@ -1,7 +1,8 @@
 @import 'buttons';
 @import 'input';
+@import 'image';
 @media (min-width:320px) and (max-width:1199px) {
-    .calc {
+    #app {
         width: 100%;
         font-size: 350%;
     }
