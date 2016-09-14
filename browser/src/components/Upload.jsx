@@ -43,7 +43,6 @@ export default class Upload extends Component {
 
 
 	_renderImages(){
-		console.log("rendering")
 		return this.state.thumnails.map((file, index)=>{
 			let menu =[{
 				name: "delete",
@@ -52,10 +51,7 @@ export default class Upload extends Component {
 			return (
 				<div className="thumb-block" key={index}>
 					<Image src={file.src} />
-					<div className="mini-menu" onClick={this.edit}>
-						<p>...</p>
-						<Dropdown menu={menu}/>
-					</div>
+					<Dropdown menu={menu}/>
 				</div>
 			)
 		})
