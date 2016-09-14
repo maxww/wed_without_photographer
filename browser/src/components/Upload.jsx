@@ -8,12 +8,14 @@ export default class Upload extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-            status: "0",
+            status: "",
             filesNum: 0,
-			previews: [],
+			thumnails: [],
 			message: "",
 		}
 		this.previews = [];
+		this.toBeUploaded = [];
+		this.uploaded = [];
         this.uploadFile = this._uploadFile.bind(this);
         this.selectFiles = this._selectFiles.bind(this);
         this.previewFiles = this._previewFiles.bind(this);
@@ -26,13 +28,13 @@ export default class Upload extends Component {
             <div>
                 <p>Total Selected Files: {this.state.filesNum}</p>
                 <input className="hidden" id="upload" type="file" multiple onChange={this.previewFiles}></input>
-                <Button class="buttons" id="select-files" click={this.selectFiles} text="Select Files" />
-                <Button class="buttons" type="submit" click={this.uploadFile} text="Upload Now" />
-                <p>Upload Status: {this.state.status}  % done</p>
 				<p>{this.state.message}</p>
 				<div className="preview">
 					{this.renderImages()}
 				</div>
+				<Button class="buttons" id="select-files" click={this.selectFiles} text="Select Files" />
+				<Button class="buttons" type="submit" click={this.uploadFile} text="Upload Now" />
+				<p>{this.state.status}</p>
             </div>
 		)
 	}
@@ -40,7 +42,7 @@ export default class Upload extends Component {
 
 	_renderImages(){
 		console.log("rendering")
-		return this.state.previews.map((file, index)=>{
+		return this.state.thumnails.map((file, index)=>{
 			return (
 				<div className="thumb-block" key={index}>
 					<Image src={file.src} />
@@ -59,7 +61,7 @@ export default class Upload extends Component {
 		event.preventDefault();
 
         const files = event.target.files;
-		this.setState({filesNum: files.length, message:"What You Selected:"});
+
 		const self = this;
 
 		function readAndPreview(file){
@@ -68,8 +70,14 @@ export default class Upload extends Component {
 				let image = new Image();
 				image.title = file.name;
 				image.src = this.result;
-				self.previews.push(image);
-				self.setState({previews: self.previews})
+				if (self.previews.indexOf(image) === -1){
+					self.previews.push(image);
+				}
+				self.setState({
+					thumnails: self.previews,
+					filesNum: self.previews.length,
+					message:"What You Selected:"
+				})
 			})
 			reader.readAsDataURL(file);
 		}
@@ -78,24 +86,24 @@ export default class Upload extends Component {
 			for (let file in files){
 				if (typeof files[file] === "object"){
 					readAndPreview(files[file]);
+					if (this.toBeUploaded.indexOf(files[file] === -1)){
+						this.toBeUploaded.push(files[file]);
+					}
 				}
 			}
 		}
     }
 
     _uploadFile(){
-        const selectedFiles = document.getElementById('upload').files;
-        const self = this;
 		let metadata = {};
 		this.setState({message:"What You Uploaded:"})
-        for (let file in selectedFiles){
-            const eachFile = selectedFiles[file];
-			metadata.contentType = eachFile.type;
-            const uploadTask = storageRef.child('images/' + eachFile.name).put(eachFile, metadata);
+        this.toBeUploaded.forEach((file)=>{
+			metadata.contentType = file.type;
+            const uploadTask = storageRef.child('images/' + file.name).put(file, metadata);
 
-            uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, function(snapshot) {
+            uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, (snapshot) =>{
                 const progress = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
-                self.setState({status: progress})
+                this.setState({status: "Upload Status: " + progress + " % done"})
 
                 switch (snapshot.state) {
                     case firebase.storage.TaskState.PAUSED:
@@ -104,7 +112,7 @@ export default class Upload extends Component {
                     break;
                 }
 
-            }, function(error) {
+            }, (error)=> {
                 switch (error.code) {
                     case 'storage/unauthorized':
                     break;
@@ -113,14 +121,15 @@ export default class Upload extends Component {
                     case 'storage/unknown':
                     break;
                 }
-            }, function() {
+            }, ()=> {
   				// Upload completed successfully, now we can get the download URL
   				const downloadURL = uploadTask.snapshot.downloadURL;
 				let imageFile = {src: downloadURL};
-				if (!self.previews.indexOf(imageFile)) self.previews.push(imageFile);
-				self.setState({previews: self.previews})
+				if (this.uploaded.indexOf(imageFile) === -1){
+					this.uploaded.push(imageFile);
+				}
+				this.setState({thumnails: this.uploaded})
 			});
-        }
-
-    }
+		})
+	}
 }
