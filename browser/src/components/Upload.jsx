@@ -3,6 +3,7 @@ import {render} from 'react-dom';
 import { storageRef } from '../../firebase';
 import Button from './Button';
 import Image from './Image';
+import Dropdown from './Dropdown';
 
 export default class Upload extends Component {
 	constructor(props) {
@@ -20,6 +21,7 @@ export default class Upload extends Component {
         this.selectFiles = this._selectFiles.bind(this);
         this.previewFiles = this._previewFiles.bind(this);
 		this.renderImages = this._renderImages.bind(this);
+		this.edit = this._edit.bind(this);
 	}
 
 
@@ -43,10 +45,17 @@ export default class Upload extends Component {
 	_renderImages(){
 		console.log("rendering")
 		return this.state.thumnails.map((file, index)=>{
+			let menu =[{
+				name: "delete",
+				src: file.src
+			}]
 			return (
 				<div className="thumb-block" key={index}>
 					<Image src={file.src} />
-					<div className="mini-menu">...</div>
+					<div className="mini-menu" onClick={this.edit}>
+						<p>...</p>
+						<Dropdown menu={menu}/>
+					</div>
 				</div>
 			)
 		})
@@ -132,4 +141,9 @@ export default class Upload extends Component {
 			});
 		})
 	}
+
+	_edit(){
+
+	}
+
 }
