@@ -19,7 +19,7 @@ export default class Delete extends Component {
   }
 
   _deleteImg() {
-    console.log("changing state")
+    console.log("changing state", this.props.menu)
   }
 }
 
