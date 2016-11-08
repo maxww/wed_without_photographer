@@ -14,11 +14,14 @@ module.exports = {
 	module: {
 		loaders: [{
 			test: /\.scss$/,
-			loaders: ['style-loader', 'css-loader', 'sass-loader']
+			loaders: ['style-loader', 'css-loader','sass-loader']
 		}, {
 			test: /\.jsx?$/,
 			exclude: /node_modules/,
 			loaders: ['react-hot', 'babel?presets[]=react,presets[]=es2015']
+		}, {
+			test: /\.(png|svg)$/,
+			loaders: ['url-loader']
 		}]
 	}
 }
