@@ -7,9 +7,22 @@
 @import 'delete';
 
 #app {
-    height: 100%;
-    background-color: $cruise;
-    color: $brown;
-    font-family: raleway;
-    text-align: center;
+  min-height: 100%;
+  background-color: $cruise;
+  color: $brown;
+  font-family: raleway;
+  text-align: center;
+  overflow: visible;
+
+  .main-contianer {
+    overflow: visible;
+    
+    .welcome-container {
+
+    }
+
+    .upload-container {
+
+    }
+  }
 }

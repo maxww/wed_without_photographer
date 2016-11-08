@@ -6,6 +6,12 @@
 @media only screen and (min-device-width: 320px) and (max-device-width: 773px) and (orientation: portrait) {
     #app {
         font-size: 450%;
+        .paragraph-font {
+          font-size: 60%;
+        }
+        .category-font {
+          font-size: 80%;
+        }
     }
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 773px) and (orientation: landscape) {

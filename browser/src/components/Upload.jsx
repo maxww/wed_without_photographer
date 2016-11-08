@@ -28,10 +28,10 @@ export default class Upload extends Component {
 
   render() {
     return (
-      <div>
-        <p>Total Selected Files: {this.state.filesNum}</p>
+      <div className="upload-container">
+        <p className="category-font">Total Selected Files: {this.state.filesNum}</p>
         <input className="hidden" id="upload" type="file" multiple onChange={this.previewFiles}></input>
-        <p>{this.state.message}</p>
+        <p className="category-font">{this.state.message}</p>
         <div className="preview">
           {this.renderImages()}
         </div>
