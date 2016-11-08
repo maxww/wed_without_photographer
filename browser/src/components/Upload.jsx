@@ -45,14 +45,22 @@ export default class Upload extends Component {
   _renderImages() {
     return this.state.thumbnails.map((file, index) => {
       this.deleteImg = this._deleteImg.bind(this, index);
-      return (
-        <div className="thumb-block" key={index}>
-          <Image src={file.src}/>
-          <div>
-            <i className='delete-icon' onClick={this.deleteImg}></i>
+      if (this.uploaded.length) {
+        return (
+          <div className="thumb-block" key={index}>
+            <Image src={file.src}/>
           </div>
-        </div>
-      )
+        )
+      } else {
+        return (
+          <div className="thumb-block" key={index}>
+            <Image src={file.src}/>
+            <div>
+              <i className='delete-icon' onClick={this.deleteImg}></i>
+            </div>
+          </div>
+        )
+      }
     })
   }
 
