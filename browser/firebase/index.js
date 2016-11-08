@@ -9,5 +9,5 @@ const config = {
 
 const firebaseApp = firebase.initializeApp(config);
 const storageRef = firebase.storage().ref();
-
+console.log(storageRef)
 export { firebaseApp, storageRef }

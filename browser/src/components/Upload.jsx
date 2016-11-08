@@ -1,6 +1,7 @@
 import React, {Component, PropTypes} from 'react';
 import {render} from 'react-dom';
 import {storageRef} from '../../firebase';
+import firebase from 'firebase';
 import Button from './Button';
 import Image from './Image';
 import Dropdown from './Dropdown';
@@ -95,10 +96,11 @@ export default class Upload extends Component {
 
   _deleteImg(index) {
     event.preventDefault();
-    const updatedThumbnails = this.state.thumbnails.filter((thumbnail, idx) => {
-      return idx !== index
-    })
-    this.setState({thumbnails: updatedThumbnails})
+
+    this.toBeUploaded.splice(index, 1);
+    this.previews.splice(index, 1);
+
+    this.setState({thumbnails: this.previews, filesNum: this.previews.length});
   }
 
   _uploadFile() {
