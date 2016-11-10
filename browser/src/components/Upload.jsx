@@ -12,6 +12,7 @@ export default class Upload extends Component {
     super(props);
     this.state = {
       status: "",
+      method: '',
       filesNum: 0,
       thumbnails: [],
       message: ""
@@ -29,7 +30,10 @@ export default class Upload extends Component {
   render() {
     return (
       <div className="upload-container">
-        <p className="category-font">Total Selected Files: {this.state.filesNum}</p>
+        <p className="category-font">
+          Total {this.state.method}
+          Files: {this.state.filesNum}
+        </p>
         <input className="hidden" id="upload" type="file" multiple onChange={this.previewFiles}></input>
         <p className="category-font">{this.state.message}</p>
         <div className="preview">
@@ -45,7 +49,7 @@ export default class Upload extends Component {
   _renderImages() {
     return this.state.thumbnails.map((file, index) => {
       this.deleteImg = this._deleteImg.bind(this, index);
-      if (this.uploaded.length) {
+      if (!this.toBeUploaded.length) {
         return (
           <div className="thumb-block" key={index}>
             <Image src={file.src}/>
@@ -76,6 +80,10 @@ export default class Upload extends Component {
 
     const self = this;
 
+    this.previews = [];
+
+    this.setState({status: ''})
+
     function readAndPreview(file) {
       const reader = new FileReader();
       reader.addEventListener("load", function() {
@@ -85,7 +93,7 @@ export default class Upload extends Component {
         if (self.previews.indexOf(image) === -1) {
           self.previews.push(image);
         }
-        self.setState({thumbnails: self.previews, filesNum: self.previews.length, message: "What You Selected:"})
+        self.setState({method: 'Selected ', thumbnails: self.previews, filesNum: self.previews.length, message: "What You Selected:"})
       })
       reader.readAsDataURL(file);
     }
@@ -94,7 +102,7 @@ export default class Upload extends Component {
       for (let file in files) {
         if (typeof files[file] === "object") {
           readAndPreview(files[file]);
-          if (this.toBeUploaded.indexOf(files[file] === -1)) {
+          if (this.toBeUploaded.indexOf(files[file]) === -1 && this.uploaded.indexOf(files[file]) === -1) {
             this.toBeUploaded.push(files[file]);
           }
         }
@@ -149,9 +157,10 @@ export default class Upload extends Component {
         if (this.uploaded.indexOf(imageFile) === -1) {
           this.uploaded.push(imageFile);
         }
-        this.setState({thumbnails: this.uploaded})
+        this.setState({method: 'Uploaded ', thumbnails: this.uploaded, filesNum: this.uploaded.length})
       });
     })
+    this.toBeUploaded = [];
   }
 
   _edit() {}
