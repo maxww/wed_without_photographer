@@ -14,6 +14,8 @@ app.use('/api', router)
 
 import db from './db';
 
-app.listen(7777, function () {
-	console.log("now listening port 7777")
+const PORT = process.env.PORT || 7777;
+
+app.listen(PORT, function () {
+	console.log(`now listening port ${PORT}`);
 })
