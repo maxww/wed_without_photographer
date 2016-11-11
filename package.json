@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha --compilers js:babel-core/register test.js",
-    "start": "nodemon ./server/start.js webpack -w"
+    "start": "node ./server/start.js"
   },
   "dependencies": {
     "babel-core": "^6.13.2",
