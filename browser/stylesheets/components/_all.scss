@@ -8,17 +8,17 @@
 
 #app {
   min-height: 100%;
-  background-color: $cruise;
+  background-color: $light-blue;
   color: $brown;
-  font-family: raleway;
+  font-family: muli;
   text-align: center;
   overflow: visible;
 
   .main-contianer {
     overflow: visible;
-    
-    .welcome-container {
 
+    .welcome-container {
+      margin-top: 50px;
     }
 
     .upload-container {
