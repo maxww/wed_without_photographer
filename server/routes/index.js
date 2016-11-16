@@ -1,34 +1,29 @@
 import { Router } from 'express';
 const router = Router();
+import path from 'path';
+const homePath = path.join(__dirname, '../../browser/public');
+
 export default router;
 
 import _ from 'lodash';
 
 router.param('id', function (req, res, next, id) {
-	// Todo.findById(id).exec()
-	// 	.then(function (todo) {
-	// 		if (todo) {
-	// 			req.todo = todo;
-	// 			next();
-	// 		} else {
-	// 			res.status(404).end();
-	// 		}
-	// 	})
-	// 	.catch(next);
 });
 
 router.get('/', function (req, res, next) {
-	// Todo.find({}).exec()
-	// 	.then(function (todos) {
-	// 		res.status(200).json(todos);
-	// 	})
-	// 	.catch(next)
+  console.log('index');
+  res.status(200).end();
 });
 
 router.post('/', function (req, res, next) {
-	// Todo.create(req.body)
-	// 	.then(function (todo) {
-	// 		res.status(201).json(todo)
-	// 	})
-	// 	.then(null, next)
+});
+
+router.get('/upload', function (req, res, next) {
+  console.log('upload');
+  res.status(200).end();
+});
+
+router.get('/pictures', function (req, res, next) {
+  console.log('pictures');
+  res.status(200).end();
 });

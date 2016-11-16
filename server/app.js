@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 
 import router from './routes';
-app.use('/api', router)
+app.use('/', router)
 
 import db from './db';
 
