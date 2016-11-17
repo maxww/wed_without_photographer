@@ -53,13 +53,13 @@ export default class Upload extends Component {
       if (!this.toBeUploaded.length) {
         return (
           <div className="thumb-block" key={index}>
-            <Image src={file.src}/>
+            <Image class="thumb-image" src={file.src}/>
           </div>
         )
       } else {
         return (
           <div className="thumb-block" key={index}>
-            <Image src={file.src}/>
+            <Image class="thumb-image" src={file.src}/>
             <div>
               <i className='delete-icon' onClick={this.deleteImg}></i>
             </div>

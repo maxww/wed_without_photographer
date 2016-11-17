@@ -36,8 +36,8 @@ export default class Pictures extends React.Component {
   _renderImages () {
     return _.values(this.state.allImagesMetadata).map( (file, index) => {
       return (
-        <div className="thumb-block" key={index}>
-          <Image src={file.src}/>
+        <div className="thumb-block-large" key={index}>
+          <Image class="thumb-image-large" src={file.src}/>
         </div>
       )
     });
