@@ -64,13 +64,13 @@
 
 	var _Pictures2 = _interopRequireDefault(_Pictures);
 
-	var _App = __webpack_require__(249);
+	var _App = __webpack_require__(251);
 
 	var _App2 = _interopRequireDefault(_App);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	__webpack_require__(250);
+	__webpack_require__(252);
 
 	(0, _reactDom.render)(_react2.default.createElement(
 	  _reactRouter.Router,
@@ -28497,7 +28497,7 @@
 
 	var _Image2 = _interopRequireDefault(_Image);
 
-	var _lodash = __webpack_require__(255);
+	var _lodash = __webpack_require__(249);
 
 	var _ = _interopRequireWildcard(_lodash);
 
@@ -28592,444 +28592,6 @@
 
 /***/ },
 /* 249 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/tchen/Documents/wed_without_photographer/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/tchen/Documents/wed_without_photographer/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _MainComponent = __webpack_require__(235);
-
-	var _MainComponent2 = _interopRequireDefault(_MainComponent);
-
-	var _reactRouter = __webpack_require__(172);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var App = function (_React$Component) {
-	  _inherits(App, _React$Component);
-
-	  function App(props) {
-	    _classCallCheck(this, App);
-
-	    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
-
-	    _this.state = {};
-	    return _this;
-	  }
-
-	  _createClass(App, [{
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement(
-	        'div',
-	        { className: 'app' },
-	        _react2.default.createElement(
-	          'ul',
-	          { className: 'nav-items' },
-	          _react2.default.createElement(
-	            'li',
-	            null,
-	            _react2.default.createElement(
-	              _reactRouter.Link,
-	              { to: '/upload' },
-	              'Upload'
-	            )
-	          ),
-	          _react2.default.createElement(
-	            'li',
-	            null,
-	            _react2.default.createElement(
-	              _reactRouter.Link,
-	              { to: '/pictures' },
-	              'Pictures'
-	            )
-	          )
-	        ),
-	        this.props.children
-	      );
-	    }
-	  }]);
-
-	  return App;
-	}(_react2.default.Component);
-
-	exports.default = App;
-
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/tchen/Documents/wed_without_photographer/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "App.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
-
-/***/ },
-/* 250 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(251);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(254)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/sass-loader/index.js!./main.scss", function() {
-				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/sass-loader/index.js!./main.scss");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 251 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(252)();
-	// imports
-
-
-	// module
-	exports.push([module.id, ".numbers {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  flex-wrap: wrap; }\n\n.buttons {\n  text-align: center;\n  background-color: #4B6476;\n  margin: 20px 10%;\n  width: 80%;\n  height: 5%;\n  color: #C5C2A2;\n  font-size: 80%; }\n\n.hidden {\n  display: none; }\n\n.preview {\n  width: 100%;\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap; }\n\n.thumb-block {\n  margin: 2%;\n  width: 46%;\n  height: 21%;\n  overflow: hidden; }\n\n.thumb-image {\n  width: 100%; }\n\n.mini-menu {\n  display: flex;\n  justify-content: flex-end; }\n\n.dropdown {\n  display: block;\n  margin: 5px 0 0 2px;\n  position: absolute;\n  background-color: #fcfcfc;\n  min-width: 160px;\n  height: 300px;\n  box-shadow: 5px 8px 16px 0 rgba(0, 0, 0, 0.2);\n  padding: 12px 16px; }\n\n@media only screen and (min-device-width: 320px) and (max-device-width: 773px) {\n  #app {\n    width: 100%; } }\n\n@media only screen and (min-device-width: 320px) and (max-device-width: 773px) and (orientation: portrait) {\n  #app {\n    font-size: 450%; }\n    #app .paragraph-font {\n      font-size: 60%; }\n    #app .category-font {\n      font-size: 80%; } }\n\n@media only screen and (min-device-width: 320px) and (max-device-width: 773px) and (orientation: landscape) {\n  #app {\n    font-size: 250%; } }\n\n.delete-icon {\n  width: 98px;\n  height: 128px;\n  position: absolute;\n  background-image: url(" + __webpack_require__(253) + ");\n  background-repeat: no-repeat; }\n\n#app {\n  min-height: 100%;\n  background-color: #E1F5FE;\n  color: #57523E;\n  font-family: muli;\n  text-align: center;\n  overflow: visible; }\n  #app .app .nav-items {\n    display: flex;\n    justify-content: space-around;\n    list-style: none; }\n  #app .main-contianer {\n    overflow: visible; }\n    #app .main-contianer .welcome-container {\n      margin-top: 50px; }\n", ""]);
-
-	// exports
-
-
-/***/ },
-/* 252 */
-/***/ function(module, exports) {
-
-	/*
-		MIT License http://www.opensource.org/licenses/mit-license.php
-		Author Tobias Koppers @sokra
-	*/
-	// css base code, injected by the css-loader
-	module.exports = function() {
-		var list = [];
-
-		// return the list of modules as css string
-		list.toString = function toString() {
-			var result = [];
-			for(var i = 0; i < this.length; i++) {
-				var item = this[i];
-				if(item[2]) {
-					result.push("@media " + item[2] + "{" + item[1] + "}");
-				} else {
-					result.push(item[1]);
-				}
-			}
-			return result.join("");
-		};
-
-		// import a list of modules into the list
-		list.i = function(modules, mediaQuery) {
-			if(typeof modules === "string")
-				modules = [[null, modules, ""]];
-			var alreadyImportedModules = {};
-			for(var i = 0; i < this.length; i++) {
-				var id = this[i][0];
-				if(typeof id === "number")
-					alreadyImportedModules[id] = true;
-			}
-			for(i = 0; i < modules.length; i++) {
-				var item = modules[i];
-				// skip already imported module
-				// this implementation is not 100% perfect for weird media query combinations
-				//  when a module is imported multiple times with different media queries.
-				//  I hope this will never occur (Hey this way we have smaller bundles)
-				if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
-					if(mediaQuery && !item[2]) {
-						item[2] = mediaQuery;
-					} else if(mediaQuery) {
-						item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
-					}
-					list.push(item);
-				}
-			}
-		};
-		return list;
-	};
-
-
-/***/ },
-/* 253 */
-/***/ function(module, exports) {
-
-	module.exports = "data:image/png;base64,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"
-
-/***/ },
-/* 254 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/*
-		MIT License http://www.opensource.org/licenses/mit-license.php
-		Author Tobias Koppers @sokra
-	*/
-	var stylesInDom = {},
-		memoize = function(fn) {
-			var memo;
-			return function () {
-				if (typeof memo === "undefined") memo = fn.apply(this, arguments);
-				return memo;
-			};
-		},
-		isOldIE = memoize(function() {
-			return /msie [6-9]\b/.test(window.navigator.userAgent.toLowerCase());
-		}),
-		getHeadElement = memoize(function () {
-			return document.head || document.getElementsByTagName("head")[0];
-		}),
-		singletonElement = null,
-		singletonCounter = 0,
-		styleElementsInsertedAtTop = [];
-
-	module.exports = function(list, options) {
-		if(false) {
-			if(typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
-		}
-
-		options = options || {};
-		// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
-		// tags it will allow on a page
-		if (typeof options.singleton === "undefined") options.singleton = isOldIE();
-
-		// By default, add <style> tags to the bottom of <head>.
-		if (typeof options.insertAt === "undefined") options.insertAt = "bottom";
-
-		var styles = listToStyles(list);
-		addStylesToDom(styles, options);
-
-		return function update(newList) {
-			var mayRemove = [];
-			for(var i = 0; i < styles.length; i++) {
-				var item = styles[i];
-				var domStyle = stylesInDom[item.id];
-				domStyle.refs--;
-				mayRemove.push(domStyle);
-			}
-			if(newList) {
-				var newStyles = listToStyles(newList);
-				addStylesToDom(newStyles, options);
-			}
-			for(var i = 0; i < mayRemove.length; i++) {
-				var domStyle = mayRemove[i];
-				if(domStyle.refs === 0) {
-					for(var j = 0; j < domStyle.parts.length; j++)
-						domStyle.parts[j]();
-					delete stylesInDom[domStyle.id];
-				}
-			}
-		};
-	}
-
-	function addStylesToDom(styles, options) {
-		for(var i = 0; i < styles.length; i++) {
-			var item = styles[i];
-			var domStyle = stylesInDom[item.id];
-			if(domStyle) {
-				domStyle.refs++;
-				for(var j = 0; j < domStyle.parts.length; j++) {
-					domStyle.parts[j](item.parts[j]);
-				}
-				for(; j < item.parts.length; j++) {
-					domStyle.parts.push(addStyle(item.parts[j], options));
-				}
-			} else {
-				var parts = [];
-				for(var j = 0; j < item.parts.length; j++) {
-					parts.push(addStyle(item.parts[j], options));
-				}
-				stylesInDom[item.id] = {id: item.id, refs: 1, parts: parts};
-			}
-		}
-	}
-
-	function listToStyles(list) {
-		var styles = [];
-		var newStyles = {};
-		for(var i = 0; i < list.length; i++) {
-			var item = list[i];
-			var id = item[0];
-			var css = item[1];
-			var media = item[2];
-			var sourceMap = item[3];
-			var part = {css: css, media: media, sourceMap: sourceMap};
-			if(!newStyles[id])
-				styles.push(newStyles[id] = {id: id, parts: [part]});
-			else
-				newStyles[id].parts.push(part);
-		}
-		return styles;
-	}
-
-	function insertStyleElement(options, styleElement) {
-		var head = getHeadElement();
-		var lastStyleElementInsertedAtTop = styleElementsInsertedAtTop[styleElementsInsertedAtTop.length - 1];
-		if (options.insertAt === "top") {
-			if(!lastStyleElementInsertedAtTop) {
-				head.insertBefore(styleElement, head.firstChild);
-			} else if(lastStyleElementInsertedAtTop.nextSibling) {
-				head.insertBefore(styleElement, lastStyleElementInsertedAtTop.nextSibling);
-			} else {
-				head.appendChild(styleElement);
-			}
-			styleElementsInsertedAtTop.push(styleElement);
-		} else if (options.insertAt === "bottom") {
-			head.appendChild(styleElement);
-		} else {
-			throw new Error("Invalid value for parameter 'insertAt'. Must be 'top' or 'bottom'.");
-		}
-	}
-
-	function removeStyleElement(styleElement) {
-		styleElement.parentNode.removeChild(styleElement);
-		var idx = styleElementsInsertedAtTop.indexOf(styleElement);
-		if(idx >= 0) {
-			styleElementsInsertedAtTop.splice(idx, 1);
-		}
-	}
-
-	function createStyleElement(options) {
-		var styleElement = document.createElement("style");
-		styleElement.type = "text/css";
-		insertStyleElement(options, styleElement);
-		return styleElement;
-	}
-
-	function createLinkElement(options) {
-		var linkElement = document.createElement("link");
-		linkElement.rel = "stylesheet";
-		insertStyleElement(options, linkElement);
-		return linkElement;
-	}
-
-	function addStyle(obj, options) {
-		var styleElement, update, remove;
-
-		if (options.singleton) {
-			var styleIndex = singletonCounter++;
-			styleElement = singletonElement || (singletonElement = createStyleElement(options));
-			update = applyToSingletonTag.bind(null, styleElement, styleIndex, false);
-			remove = applyToSingletonTag.bind(null, styleElement, styleIndex, true);
-		} else if(obj.sourceMap &&
-			typeof URL === "function" &&
-			typeof URL.createObjectURL === "function" &&
-			typeof URL.revokeObjectURL === "function" &&
-			typeof Blob === "function" &&
-			typeof btoa === "function") {
-			styleElement = createLinkElement(options);
-			update = updateLink.bind(null, styleElement);
-			remove = function() {
-				removeStyleElement(styleElement);
-				if(styleElement.href)
-					URL.revokeObjectURL(styleElement.href);
-			};
-		} else {
-			styleElement = createStyleElement(options);
-			update = applyToTag.bind(null, styleElement);
-			remove = function() {
-				removeStyleElement(styleElement);
-			};
-		}
-
-		update(obj);
-
-		return function updateStyle(newObj) {
-			if(newObj) {
-				if(newObj.css === obj.css && newObj.media === obj.media && newObj.sourceMap === obj.sourceMap)
-					return;
-				update(obj = newObj);
-			} else {
-				remove();
-			}
-		};
-	}
-
-	var replaceText = (function () {
-		var textStore = [];
-
-		return function (index, replacement) {
-			textStore[index] = replacement;
-			return textStore.filter(Boolean).join('\n');
-		};
-	})();
-
-	function applyToSingletonTag(styleElement, index, remove, obj) {
-		var css = remove ? "" : obj.css;
-
-		if (styleElement.styleSheet) {
-			styleElement.styleSheet.cssText = replaceText(index, css);
-		} else {
-			var cssNode = document.createTextNode(css);
-			var childNodes = styleElement.childNodes;
-			if (childNodes[index]) styleElement.removeChild(childNodes[index]);
-			if (childNodes.length) {
-				styleElement.insertBefore(cssNode, childNodes[index]);
-			} else {
-				styleElement.appendChild(cssNode);
-			}
-		}
-	}
-
-	function applyToTag(styleElement, obj) {
-		var css = obj.css;
-		var media = obj.media;
-
-		if(media) {
-			styleElement.setAttribute("media", media)
-		}
-
-		if(styleElement.styleSheet) {
-			styleElement.styleSheet.cssText = css;
-		} else {
-			while(styleElement.firstChild) {
-				styleElement.removeChild(styleElement.firstChild);
-			}
-			styleElement.appendChild(document.createTextNode(css));
-		}
-	}
-
-	function updateLink(linkElement, obj) {
-		var css = obj.css;
-		var sourceMap = obj.sourceMap;
-
-		if(sourceMap) {
-			// http://stackoverflow.com/a/26603875
-			css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + " */";
-		}
-
-		var blob = new Blob([css], { type: "text/css" });
-
-		var oldSrc = linkElement.href;
-
-		linkElement.href = URL.createObjectURL(blob);
-
-		if(oldSrc)
-			URL.revokeObjectURL(oldSrc);
-	}
-
-
-/***/ },
-/* 255 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(global, module) {/**
@@ -46051,10 +45613,10 @@
 	  }
 	}.call(this));
 
-	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(256)(module)))
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(250)(module)))
 
 /***/ },
-/* 256 */
+/* 250 */
 /***/ function(module, exports) {
 
 	module.exports = function(module) {
@@ -46066,6 +45628,444 @@
 			module.webpackPolyfill = 1;
 		}
 		return module;
+	}
+
+
+/***/ },
+/* 251 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/tchen/Documents/wed_without_photographer/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/tchen/Documents/wed_without_photographer/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _MainComponent = __webpack_require__(235);
+
+	var _MainComponent2 = _interopRequireDefault(_MainComponent);
+
+	var _reactRouter = __webpack_require__(172);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var App = function (_React$Component) {
+	  _inherits(App, _React$Component);
+
+	  function App(props) {
+	    _classCallCheck(this, App);
+
+	    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
+
+	    _this.state = {};
+	    return _this;
+	  }
+
+	  _createClass(App, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'app' },
+	        _react2.default.createElement(
+	          'ul',
+	          { className: 'nav-items' },
+	          _react2.default.createElement(
+	            'li',
+	            null,
+	            _react2.default.createElement(
+	              _reactRouter.Link,
+	              { to: '/upload' },
+	              'Upload'
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'li',
+	            null,
+	            _react2.default.createElement(
+	              _reactRouter.Link,
+	              { to: '/pictures' },
+	              'Pictures'
+	            )
+	          )
+	        ),
+	        this.props.children
+	      );
+	    }
+	  }]);
+
+	  return App;
+	}(_react2.default.Component);
+
+	exports.default = App;
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/tchen/Documents/wed_without_photographer/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "App.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 252 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(253);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(256)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/sass-loader/index.js!./main.scss", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/sass-loader/index.js!./main.scss");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 253 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(254)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".numbers {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  flex-wrap: wrap; }\n\n.buttons {\n  text-align: center;\n  background-color: #4B6476;\n  margin: 20px 10%;\n  width: 80%;\n  height: 5%;\n  color: #C5C2A2;\n  font-size: 80%; }\n\n.hidden {\n  display: none; }\n\n.preview {\n  width: 100%;\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap; }\n\n.thumb-block {\n  margin: 2%;\n  width: 46%;\n  height: 21%;\n  overflow: hidden; }\n\n.thumb-image {\n  max-width: 100%;\n  max-height: 80%; }\n\n.mini-menu {\n  display: flex;\n  justify-content: flex-end; }\n\n.dropdown {\n  display: block;\n  margin: 5px 0 0 2px;\n  position: absolute;\n  background-color: #fcfcfc;\n  min-width: 160px;\n  height: 300px;\n  box-shadow: 5px 8px 16px 0 rgba(0, 0, 0, 0.2);\n  padding: 12px 16px; }\n\n@media only screen and (min-device-width: 320px) and (max-device-width: 773px) {\n  #app {\n    width: 100%; } }\n\n@media only screen and (min-device-width: 320px) and (max-device-width: 773px) and (orientation: portrait) {\n  #app {\n    font-size: 450%; }\n    #app .paragraph-font {\n      font-size: 60%; }\n    #app .category-font {\n      font-size: 80%; } }\n\n@media only screen and (min-device-width: 320px) and (max-device-width: 773px) and (orientation: landscape) {\n  #app {\n    font-size: 250%; } }\n\n.delete-icon {\n  width: 55px;\n  height: 55px;\n  position: absolute;\n  background-image: url(" + __webpack_require__(255) + ");\n  background-repeat: no-repeat; }\n\n#app {\n  min-height: 100%;\n  background-color: #E1F5FE;\n  color: #57523E;\n  font-family: muli;\n  text-align: center;\n  overflow: visible; }\n  #app .app .nav-items {\n    display: flex;\n    justify-content: space-around;\n    list-style: none; }\n  #app .main-contianer {\n    overflow: visible; }\n    #app .main-contianer .welcome-container {\n      margin-top: 50px; }\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 254 */
+/***/ function(module, exports) {
+
+	/*
+		MIT License http://www.opensource.org/licenses/mit-license.php
+		Author Tobias Koppers @sokra
+	*/
+	// css base code, injected by the css-loader
+	module.exports = function() {
+		var list = [];
+
+		// return the list of modules as css string
+		list.toString = function toString() {
+			var result = [];
+			for(var i = 0; i < this.length; i++) {
+				var item = this[i];
+				if(item[2]) {
+					result.push("@media " + item[2] + "{" + item[1] + "}");
+				} else {
+					result.push(item[1]);
+				}
+			}
+			return result.join("");
+		};
+
+		// import a list of modules into the list
+		list.i = function(modules, mediaQuery) {
+			if(typeof modules === "string")
+				modules = [[null, modules, ""]];
+			var alreadyImportedModules = {};
+			for(var i = 0; i < this.length; i++) {
+				var id = this[i][0];
+				if(typeof id === "number")
+					alreadyImportedModules[id] = true;
+			}
+			for(i = 0; i < modules.length; i++) {
+				var item = modules[i];
+				// skip already imported module
+				// this implementation is not 100% perfect for weird media query combinations
+				//  when a module is imported multiple times with different media queries.
+				//  I hope this will never occur (Hey this way we have smaller bundles)
+				if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
+					if(mediaQuery && !item[2]) {
+						item[2] = mediaQuery;
+					} else if(mediaQuery) {
+						item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
+					}
+					list.push(item);
+				}
+			}
+		};
+		return list;
+	};
+
+
+/***/ },
+/* 255 */
+/***/ function(module, exports) {
+
+	module.exports = "data:image/png;base64,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"
+
+/***/ },
+/* 256 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/*
+		MIT License http://www.opensource.org/licenses/mit-license.php
+		Author Tobias Koppers @sokra
+	*/
+	var stylesInDom = {},
+		memoize = function(fn) {
+			var memo;
+			return function () {
+				if (typeof memo === "undefined") memo = fn.apply(this, arguments);
+				return memo;
+			};
+		},
+		isOldIE = memoize(function() {
+			return /msie [6-9]\b/.test(window.navigator.userAgent.toLowerCase());
+		}),
+		getHeadElement = memoize(function () {
+			return document.head || document.getElementsByTagName("head")[0];
+		}),
+		singletonElement = null,
+		singletonCounter = 0,
+		styleElementsInsertedAtTop = [];
+
+	module.exports = function(list, options) {
+		if(false) {
+			if(typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
+		}
+
+		options = options || {};
+		// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
+		// tags it will allow on a page
+		if (typeof options.singleton === "undefined") options.singleton = isOldIE();
+
+		// By default, add <style> tags to the bottom of <head>.
+		if (typeof options.insertAt === "undefined") options.insertAt = "bottom";
+
+		var styles = listToStyles(list);
+		addStylesToDom(styles, options);
+
+		return function update(newList) {
+			var mayRemove = [];
+			for(var i = 0; i < styles.length; i++) {
+				var item = styles[i];
+				var domStyle = stylesInDom[item.id];
+				domStyle.refs--;
+				mayRemove.push(domStyle);
+			}
+			if(newList) {
+				var newStyles = listToStyles(newList);
+				addStylesToDom(newStyles, options);
+			}
+			for(var i = 0; i < mayRemove.length; i++) {
+				var domStyle = mayRemove[i];
+				if(domStyle.refs === 0) {
+					for(var j = 0; j < domStyle.parts.length; j++)
+						domStyle.parts[j]();
+					delete stylesInDom[domStyle.id];
+				}
+			}
+		};
+	}
+
+	function addStylesToDom(styles, options) {
+		for(var i = 0; i < styles.length; i++) {
+			var item = styles[i];
+			var domStyle = stylesInDom[item.id];
+			if(domStyle) {
+				domStyle.refs++;
+				for(var j = 0; j < domStyle.parts.length; j++) {
+					domStyle.parts[j](item.parts[j]);
+				}
+				for(; j < item.parts.length; j++) {
+					domStyle.parts.push(addStyle(item.parts[j], options));
+				}
+			} else {
+				var parts = [];
+				for(var j = 0; j < item.parts.length; j++) {
+					parts.push(addStyle(item.parts[j], options));
+				}
+				stylesInDom[item.id] = {id: item.id, refs: 1, parts: parts};
+			}
+		}
+	}
+
+	function listToStyles(list) {
+		var styles = [];
+		var newStyles = {};
+		for(var i = 0; i < list.length; i++) {
+			var item = list[i];
+			var id = item[0];
+			var css = item[1];
+			var media = item[2];
+			var sourceMap = item[3];
+			var part = {css: css, media: media, sourceMap: sourceMap};
+			if(!newStyles[id])
+				styles.push(newStyles[id] = {id: id, parts: [part]});
+			else
+				newStyles[id].parts.push(part);
+		}
+		return styles;
+	}
+
+	function insertStyleElement(options, styleElement) {
+		var head = getHeadElement();
+		var lastStyleElementInsertedAtTop = styleElementsInsertedAtTop[styleElementsInsertedAtTop.length - 1];
+		if (options.insertAt === "top") {
+			if(!lastStyleElementInsertedAtTop) {
+				head.insertBefore(styleElement, head.firstChild);
+			} else if(lastStyleElementInsertedAtTop.nextSibling) {
+				head.insertBefore(styleElement, lastStyleElementInsertedAtTop.nextSibling);
+			} else {
+				head.appendChild(styleElement);
+			}
+			styleElementsInsertedAtTop.push(styleElement);
+		} else if (options.insertAt === "bottom") {
+			head.appendChild(styleElement);
+		} else {
+			throw new Error("Invalid value for parameter 'insertAt'. Must be 'top' or 'bottom'.");
+		}
+	}
+
+	function removeStyleElement(styleElement) {
+		styleElement.parentNode.removeChild(styleElement);
+		var idx = styleElementsInsertedAtTop.indexOf(styleElement);
+		if(idx >= 0) {
+			styleElementsInsertedAtTop.splice(idx, 1);
+		}
+	}
+
+	function createStyleElement(options) {
+		var styleElement = document.createElement("style");
+		styleElement.type = "text/css";
+		insertStyleElement(options, styleElement);
+		return styleElement;
+	}
+
+	function createLinkElement(options) {
+		var linkElement = document.createElement("link");
+		linkElement.rel = "stylesheet";
+		insertStyleElement(options, linkElement);
+		return linkElement;
+	}
+
+	function addStyle(obj, options) {
+		var styleElement, update, remove;
+
+		if (options.singleton) {
+			var styleIndex = singletonCounter++;
+			styleElement = singletonElement || (singletonElement = createStyleElement(options));
+			update = applyToSingletonTag.bind(null, styleElement, styleIndex, false);
+			remove = applyToSingletonTag.bind(null, styleElement, styleIndex, true);
+		} else if(obj.sourceMap &&
+			typeof URL === "function" &&
+			typeof URL.createObjectURL === "function" &&
+			typeof URL.revokeObjectURL === "function" &&
+			typeof Blob === "function" &&
+			typeof btoa === "function") {
+			styleElement = createLinkElement(options);
+			update = updateLink.bind(null, styleElement);
+			remove = function() {
+				removeStyleElement(styleElement);
+				if(styleElement.href)
+					URL.revokeObjectURL(styleElement.href);
+			};
+		} else {
+			styleElement = createStyleElement(options);
+			update = applyToTag.bind(null, styleElement);
+			remove = function() {
+				removeStyleElement(styleElement);
+			};
+		}
+
+		update(obj);
+
+		return function updateStyle(newObj) {
+			if(newObj) {
+				if(newObj.css === obj.css && newObj.media === obj.media && newObj.sourceMap === obj.sourceMap)
+					return;
+				update(obj = newObj);
+			} else {
+				remove();
+			}
+		};
+	}
+
+	var replaceText = (function () {
+		var textStore = [];
+
+		return function (index, replacement) {
+			textStore[index] = replacement;
+			return textStore.filter(Boolean).join('\n');
+		};
+	})();
+
+	function applyToSingletonTag(styleElement, index, remove, obj) {
+		var css = remove ? "" : obj.css;
+
+		if (styleElement.styleSheet) {
+			styleElement.styleSheet.cssText = replaceText(index, css);
+		} else {
+			var cssNode = document.createTextNode(css);
+			var childNodes = styleElement.childNodes;
+			if (childNodes[index]) styleElement.removeChild(childNodes[index]);
+			if (childNodes.length) {
+				styleElement.insertBefore(cssNode, childNodes[index]);
+			} else {
+				styleElement.appendChild(cssNode);
+			}
+		}
+	}
+
+	function applyToTag(styleElement, obj) {
+		var css = obj.css;
+		var media = obj.media;
+
+		if(media) {
+			styleElement.setAttribute("media", media)
+		}
+
+		if(styleElement.styleSheet) {
+			styleElement.styleSheet.cssText = css;
+		} else {
+			while(styleElement.firstChild) {
+				styleElement.removeChild(styleElement.firstChild);
+			}
+			styleElement.appendChild(document.createTextNode(css));
+		}
+	}
+
+	function updateLink(linkElement, obj) {
+		var css = obj.css;
+		var sourceMap = obj.sourceMap;
+
+		if(sourceMap) {
+			// http://stackoverflow.com/a/26603875
+			css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + " */";
+		}
+
+		var blob = new Blob([css], { type: "text/css" });
+
+		var oldSrc = linkElement.href;
+
+		linkElement.href = URL.createObjectURL(blob);
+
+		if(oldSrc)
+			URL.revokeObjectURL(oldSrc);
 	}
 
 

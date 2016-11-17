@@ -47,7 +47,7 @@ export default class Pictures extends React.Component {
     database.ref('imageMetadataRef').once('value').then(function(snapshot) {
       return snapshot.val();
     }).then((allImagesMetadata) => {
-      this.setState({allImagesMetadata: allImagesMetadata})
+      this.setState({allImagesMetadata: allImagesMetadata});
     });
   }
 
