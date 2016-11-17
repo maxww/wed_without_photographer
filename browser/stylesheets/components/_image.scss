@@ -1,14 +1,15 @@
 .preview {
   width: 100%;
+  min-height: 30%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
 
 .thumb-block {
-  margin: 1%;
-  width: 23%;
-  height: 12%;
+  margin: 4%;
+  width: 27%;
+  height: 14%;
   overflow: hidden;
 }
 

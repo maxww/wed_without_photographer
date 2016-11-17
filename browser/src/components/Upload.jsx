@@ -40,9 +40,11 @@ export default class Upload extends Component {
         <div className="preview">
           {this.renderImages()}
         </div>
-        <Button class="buttons" id="select-files" click={this.selectFiles} text="Select Files"/>
-        <Button class="buttons" type="submit" click={this.uploadFile} text="Upload Now"/>
-        <p>{this.state.status}</p>
+        <div className="bottom">
+          <Button class="buttons" id="select-files" click={this.selectFiles} text="Select Files"/>
+          <Button class="buttons" type="submit" click={this.uploadFile} text="Upload Now"/>
+          <p>{this.state.status}</p>
+        </div>
       </div>
     )
   }
