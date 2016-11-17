@@ -81,8 +81,6 @@ export default class Upload extends Component {
 
     const self = this;
 
-    this.previews = [];
-
     this.setState({status: ''})
 
     function readAndPreview(file) {
