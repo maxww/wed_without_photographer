@@ -18,7 +18,7 @@ export default class Pictures extends React.Component {
     return (
       <div className="main-contianer">
         <div className="welcome-container">
-          <p className="title-font">Pictures</p>
+          <p className="title-font">Christian & Taffy</p>
           <p className="paragraph-font">See all the pictures people uploaded!</p>
           <div className="preview">
             {this.renderImages()}

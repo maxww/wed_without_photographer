@@ -8,16 +8,22 @@
 
 #app {
   min-height: 100%;
+  padding: 0;
   background-color: $light-blue;
-  color: $brown;
+  color: $midnight;
   font-family: muli;
   text-align: center;
   overflow: visible;
   .app {
     .nav-items {
+      padding: 3%;
       display: flex;
       justify-content: space-around;
       list-style: none;
+      background-color: $midnight;
+      .nav-item {
+        color: $coralreef;
+      }
     }
   }
   .main-contianer {
