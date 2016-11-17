@@ -1,21 +1,54 @@
 import React from 'react';
 import {render} from 'react-dom';
-import Upload from './Upload';
+import {database} from '../../firebase';
+import firebase from 'firebase';
+import Image from './Image';
+import * as _ from 'lodash';
 
 export default class Pictures extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {}
+    this.state = {
+      allImagesMetadata: {}
+    }
+    this.renderImages = this._renderImages.bind(this);
+    this.downloadFile = this._downloadFile.bind(this);
   }
   render() {
     return (
       <div className="main-contianer">
         <div className="welcome-container">
           <p className="title-font">Pictures</p>
-          <p className="paragraph-font">Thank you for sharing the pictures with us!</p>
+          <p className="paragraph-font">See all the pictures people uploaded!</p>
+          <div className="preview">
+            {this.renderImages()}
+          </div>
         </div>
-        <Upload/>
+
       </div>
     )
   }
+
+  componentDidMount() {
+    this.downloadFile();
+  }
+
+  _renderImages () {
+    return _.values(this.state.allImagesMetadata).map( (file, index) => {
+      return (
+        <div className="thumb-block" key={index}>
+          <Image src={file.src}/>
+        </div>
+      )
+    });
+  }
+
+  _downloadFile () {
+    database.ref('imageMetadataRef').once('value').then(function(snapshot) {
+      return snapshot.val();
+    }).then((allImagesMetadata) => {
+      this.setState({allImagesMetadata: allImagesMetadata})
+    });
+  }
+
 }

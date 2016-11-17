@@ -1,11 +1,12 @@
 import React, {Component, PropTypes} from 'react';
 import {render} from 'react-dom';
-import {storageRef} from '../../firebase';
+import {storageRef, database} from '../../firebase';
 import firebase from 'firebase';
 import Button from './Button';
 import Image from './Image';
 import Dropdown from './Dropdown';
 import Delete from './Delete';
+// const imageMetadataRef = database.ref('imageMetadataRef')
 
 export default class Upload extends Component {
   constructor(props) {
@@ -122,7 +123,7 @@ export default class Upload extends Component {
   _uploadFile() {
     let metadata = {};
     this.setState({message: "What You Uploaded:"})
-    this.toBeUploaded.forEach((file) => {
+    this.toBeUploaded.forEach((file, id) => {
       metadata.contentType = file.type;
       const uploadTask = storageRef.child('images/' + file.name).put(file, metadata);
 
@@ -154,6 +155,7 @@ export default class Upload extends Component {
         let imageFile = {
           src: downloadURL
         };
+        database.ref('imageMetadataRef').push(imageFile);
         if (this.uploaded.indexOf(imageFile) === -1) {
           this.uploaded.push(imageFile);
         }
