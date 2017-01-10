@@ -9,7 +9,6 @@
 #app {
   min-height: 100%;
   padding: 0;
-  background-color: $light-blue;
   color: $midnight;
   font-family: muli;
   text-align: center;
@@ -20,9 +19,9 @@
       display: flex;
       justify-content: space-around;
       list-style: none;
-      background-color: $midnight;
+      background-color: $mid-light-grey;
       .nav-item {
-        color: $coralreef;
+        color: $midnight;
       }
     }
   }
