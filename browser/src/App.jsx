@@ -13,8 +13,8 @@ export default class App extends React.Component {
     return (
       <div className="app">
         <ul className="nav-items">
-          <li><Link className="nav-item" to="/upload">Upload</Link></li>
-          <li><Link className="nav-item" to="/pictures">View All</Link></li>
+          <li><Link className="nav-item" to="/upload"><p className="upload"></p></Link></li>
+          <li><Link className="nav-item" to="/pictures"><p className="view-all"></p></Link></li>
         </ul>
         {this.props.children}
       </div>

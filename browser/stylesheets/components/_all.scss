@@ -20,8 +20,23 @@
       justify-content: space-around;
       list-style: none;
       background-color: $mid-light-grey;
-      .nav-item {
-        color: $midnight;
+
+      .upload {
+        background: url(../src/images/icon-upload.svg) no-repeat;
+        width: 100px;
+        height: 100px;
+        &:hover {
+          background: url(../src/images/icon-upload-blue.svg) no-repeat;
+        }
+      }
+
+      .view-all {
+        background: url(../src/images/view.svg) no-repeat;
+        width: 100px;
+        height: 100px;
+        &:hover {
+          background: url(../src/images/view-blue.svg) no-repeat;
+        }
       }
     }
   }
@@ -30,12 +45,23 @@
 
     .welcome-container {
       margin-top: 50px;
+      .title {
+        margin-bottom: 18px;
+      }
     }
 
     .upload-container {
 
     }
 
+    .copyright-icon {
+      background: url(../src/images/copyright.png) no-repeat;
+      width: 24px;
+      height: 24px;
+      position: absolute;
+      margin-left: 84px;
+      margin-top: 4px;
+    }
     .bottom {
       margin-top: 15%;
     }

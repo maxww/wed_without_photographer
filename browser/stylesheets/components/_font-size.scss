@@ -2,27 +2,31 @@
 /* font size */
 /*           */
 .title-font {
-    font-size: 170%;
+  font-size: 170%;
 }
 
 .name-font {
-    font-size: 150%;
+  font-size: 150%;
 }
 
 .category-font {
-    font-size: 130%;
+  font-size: 130%;
 }
 
 .description-font {
-    font-size: 110%;
+  font-size: 110%;
 }
 
 .paragraph-font {
-    font-size: 100%;
+  font-size: 100%;
 
-    &.organization {
-        font-weight: bold;
-    }
+  &.organization {
+    font-weight: bold;
+  }
+}
+
+.copyright-font {
+  font-size: 40%;
 }
 
 .category-font,
