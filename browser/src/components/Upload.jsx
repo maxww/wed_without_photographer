@@ -65,7 +65,7 @@ export default class Upload extends Component {
       } else {
         return (
           <div className="thumb-block-large" key={index}>
-            <Image class="thumb-image-large" src={file.src}/>
+            <Image class="thumb-image" src={file.src}/>
             <p className='delete-icon' onClick={this.deleteImg}></p>
           </div>
         )
@@ -105,6 +105,7 @@ export default class Upload extends Component {
         let image = new Image();
         image.title = file.name;
         image.src = this.result;
+        console.log('preview', typeof image)
         if (self.previews.indexOf(image) === -1) {
           self.previews.push(image);
         }
