@@ -17,6 +17,7 @@ export default class Upload extends Component {
       filesNum: 0,
       thumbnails: [],
       message: "",
+      instruction: 'Click on green button to add pictures.'
     }
     this.previews = [];
     this.toBeUploaded = [];
@@ -33,8 +34,11 @@ export default class Upload extends Component {
     return (
       <div className="upload-container">
         <p className="category-font">
-          Total {this.state.method}
-          Files: {this.state.filesNum}
+          {this.state.instruction}
+        </p>
+        <p className="category-font">
+          {this.state.method}
+          {this.state.filesNum ? this.state.filesNum : ''}
         </p>
         <input className="hidden" id="upload" type="file" multiple onChange={this.previewFiles}></input>
         <p className="category-font">{this.state.message}</p>
@@ -103,7 +107,7 @@ export default class Upload extends Component {
         if (self.previews.indexOf(image) === -1) {
           self.previews.push(image);
         }
-        self.setState({method: 'Selected ', thumbnails: self.previews, filesNum: self.previews.length, message: "What You Selected:"})
+        self.setState({method: 'Total Selected Pictures: ', thumbnails: self.previews, filesNum: self.previews.length, message: "What You've Selected:", instruction: ''})
       })
       reader.readAsDataURL(file);
     }
@@ -125,8 +129,11 @@ export default class Upload extends Component {
 
     this.toBeUploaded.splice(index, 1);
     this.previews.splice(index, 1);
-
-    this.setState({thumbnails: this.previews, filesNum: this.previews.length});
+    if (!this.toBeUploaded.length) {
+      this.setState({thumbnails: this.previews, filesNum: this.previews.length, message: '', method: '', instruction: 'Click on green button to add pictures.'})
+    } else {
+      this.setState({thumbnails: this.previews, filesNum: this.previews.length});
+    }
   }
 
   _uploadFile() {
@@ -168,7 +175,7 @@ export default class Upload extends Component {
         if (this.uploaded.indexOf(imageFile) === -1) {
           this.uploaded.push(imageFile);
         }
-        this.setState({method: 'Uploaded ', thumbnails: this.uploaded, filesNum: this.uploaded.length})
+        this.setState({method: 'Total Uploaded Pictures: ', thumbnails: this.uploaded, filesNum: this.uploaded.length})
       });
     })
     this.toBeUploaded = [];

@@ -27248,7 +27248,8 @@
 	      method: '',
 	      filesNum: 0,
 	      thumbnails: [],
-	      message: ""
+	      message: "",
+	      instruction: 'Click on green button to add pictures.'
 	    };
 	    _this.previews = [];
 	    _this.toBeUploaded = [];
@@ -27271,10 +27272,13 @@
 	        _react2.default.createElement(
 	          'p',
 	          { className: 'category-font' },
-	          'Total ',
+	          this.state.instruction
+	        ),
+	        _react2.default.createElement(
+	          'p',
+	          { className: 'category-font' },
 	          this.state.method,
-	          'Files: ',
-	          this.state.filesNum
+	          this.state.filesNum ? this.state.filesNum : ''
 	        ),
 	        _react2.default.createElement('input', { className: 'hidden', id: 'upload', type: 'file', multiple: true, onChange: this.previewFiles }),
 	        _react2.default.createElement(
@@ -27360,7 +27364,7 @@
 	          if (self.previews.indexOf(image) === -1) {
 	            self.previews.push(image);
 	          }
-	          self.setState({ method: 'Selected ', thumbnails: self.previews, filesNum: self.previews.length, message: "What You Selected:" });
+	          self.setState({ method: 'Total Selected Pictures: ', thumbnails: self.previews, filesNum: self.previews.length, message: "What You've Selected:", instruction: '' });
 	        });
 	        reader.readAsDataURL(file);
 	      }
@@ -27383,8 +27387,11 @@
 
 	      this.toBeUploaded.splice(index, 1);
 	      this.previews.splice(index, 1);
-
-	      this.setState({ thumbnails: this.previews, filesNum: this.previews.length });
+	      if (!this.toBeUploaded.length) {
+	        this.setState({ thumbnails: this.previews, filesNum: this.previews.length, message: '', method: '', instruction: 'Click on green button to add pictures.' });
+	      } else {
+	        this.setState({ thumbnails: this.previews, filesNum: this.previews.length });
+	      }
 	    }
 	  }, {
 	    key: '_uploadFile',
@@ -27428,7 +27435,7 @@
 	          if (_this3.uploaded.indexOf(imageFile) === -1) {
 	            _this3.uploaded.push(imageFile);
 	          }
-	          _this3.setState({ method: 'Uploaded ', thumbnails: _this3.uploaded, filesNum: _this3.uploaded.length });
+	          _this3.setState({ method: 'Total Uploaded Pictures: ', thumbnails: _this3.uploaded, filesNum: _this3.uploaded.length });
 	        });
 	      });
 	      this.toBeUploaded = [];
@@ -45766,7 +45773,7 @@
 
 
 	// module
-	exports.push([module.id, ".numbers {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  flex-wrap: wrap; }\n\n.buttons {\n  text-align: center;\n  background-color: #9E9E9E;\n  margin: 20px 10%;\n  width: 80%;\n  height: 5%;\n  font-size: 80%; }\n\n.add-btn, .upload-btn {\n  display: inline-block;\n  width: 150px;\n  height: 150px; }\n\n.add-btn {\n  background: url(" + __webpack_require__(255) + ") no-repeat; }\n\n.upload-btn {\n  background: url(" + __webpack_require__(256) + ") no-repeat;\n  margin-left: 30%; }\n\n.hidden {\n  display: none; }\n\n.preview {\n  width: 100%;\n  min-height: 30%;\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap; }\n\n.thumb-block {\n  margin: 8% auto;\n  width: 50%;\n  height: 12%;\n  overflow: hidden; }\n\n.thumb-block-large {\n  margin: 3%;\n  width: 44%;\n  height: 33%;\n  overflow: hidden; }\n\n.thumb-image {\n  height: 100%; }\n\n.thumb-image-large {\n  max-width: 100%;\n  max-height: 100%; }\n\n.mini-menu {\n  display: flex;\n  justify-content: flex-end; }\n\n.dropdown {\n  display: block;\n  margin: 5px 0 0 2px;\n  position: absolute;\n  background-color: #fcfcfc;\n  min-width: 160px;\n  height: 300px;\n  box-shadow: 5px 8px 16px 0 rgba(0, 0, 0, 0.2);\n  padding: 12px 16px; }\n\n@media only screen and (min-device-width: 320px) and (max-device-width: 773px) {\n  #app {\n    width: 100%; } }\n\n@media only screen and (min-device-width: 320px) and (max-device-width: 773px) and (orientation: portrait) {\n  #app {\n    font-size: 450%; }\n    #app .paragraph-font {\n      font-size: 74%; }\n    #app .category-font {\n      font-size: 80%; }\n    #app .copyright-font {\n      font-size: 40%; } }\n\n@media only screen and (min-device-width: 320px) and (max-device-width: 773px) and (orientation: landscape) {\n  #app {\n    font-size: 250%; } }\n\n.delete-icon {\n  width: 150;\n  height: 150px;\n  position: absolute;\n  background-image: url(" + __webpack_require__(264) + ");\n  background-repeat: no-repeat; }\n\n#app {\n  min-height: 100%;\n  padding: 0;\n  color: #001431;\n  font-family: muli;\n  text-align: center;\n  overflow: visible; }\n  #app .app .nav-items {\n    padding: 3%;\n    display: flex;\n    justify-content: space-around;\n    list-style: none;\n    background-color: #E0E0E0; }\n  #app .app .home {\n    background: url(" + __webpack_require__(258) + ") no-repeat;\n    width: 100px;\n    height: 100px; }\n    #app .app .home:hover {\n      background: url(" + __webpack_require__(259) + ") no-repeat; }\n  #app .app .view-all {\n    background: url(" + __webpack_require__(260) + ") no-repeat;\n    width: 100px;\n    height: 100px; }\n    #app .app .view-all:hover {\n      background: url(" + __webpack_require__(261) + ") no-repeat; }\n  #app .app .copyright {\n    margin-top: 10%; }\n  #app .app .copyright-icon {\n    background: url(" + __webpack_require__(262) + ") no-repeat;\n    width: 24px;\n    height: 24px;\n    position: absolute;\n    margin-left: 84px;\n    margin-top: 4px; }\n  #app .main-contianer {\n    overflow: visible; }\n    #app .main-contianer .welcome-container {\n      margin-top: 50px; }\n      #app .main-contianer .welcome-container .title {\n        margin-bottom: 18px; }\n    #app .main-contianer .bottom {\n      margin-top: 15%; }\n", ""]);
+	exports.push([module.id, ".numbers {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  flex-wrap: wrap; }\n\n.buttons {\n  text-align: center;\n  background-color: #9E9E9E;\n  margin: 20px 10%;\n  width: 80%;\n  height: 5%;\n  font-size: 80%; }\n\n.add-btn, .upload-btn {\n  display: inline-block;\n  width: 150px;\n  height: 150px; }\n\n.add-btn {\n  background: url(" + __webpack_require__(255) + ") no-repeat; }\n\n.upload-btn {\n  background: url(" + __webpack_require__(256) + ") no-repeat;\n  margin-left: 30%; }\n\n.hidden {\n  display: none; }\n\n.preview {\n  width: 100%;\n  min-height: 30%;\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap; }\n\n.thumb-block {\n  margin: 8% auto;\n  width: 50%;\n  height: 20%;\n  overflow: hidden; }\n\n.thumb-block-large {\n  margin: 3%;\n  width: 44%;\n  height: 33%;\n  overflow: hidden; }\n\n.thumb-image {\n  height: 100%; }\n\n.thumb-image-large {\n  max-width: 100%;\n  max-height: 100%; }\n\n.mini-menu {\n  display: flex;\n  justify-content: flex-end; }\n\n.dropdown {\n  display: block;\n  margin: 5px 0 0 2px;\n  position: absolute;\n  background-color: #fcfcfc;\n  min-width: 160px;\n  height: 300px;\n  box-shadow: 5px 8px 16px 0 rgba(0, 0, 0, 0.2);\n  padding: 12px 16px; }\n\n@media only screen and (min-device-width: 320px) and (max-device-width: 773px) {\n  #app {\n    width: 100%; } }\n\n@media only screen and (min-device-width: 320px) and (max-device-width: 773px) and (orientation: portrait) {\n  #app {\n    font-size: 450%; }\n    #app .paragraph-font {\n      font-size: 74%; }\n    #app .category-font {\n      font-size: 80%; }\n    #app .copyright-font {\n      font-size: 40%; } }\n\n@media only screen and (min-device-width: 320px) and (max-device-width: 773px) and (orientation: landscape) {\n  #app {\n    font-size: 250%; } }\n\n.delete-icon {\n  width: 150;\n  height: 150px;\n  position: absolute;\n  background-image: url(" + __webpack_require__(257) + ");\n  background-repeat: no-repeat; }\n\n#app {\n  min-height: 100%;\n  padding: 0;\n  color: #001431;\n  font-family: muli;\n  text-align: center;\n  overflow: visible; }\n  #app .app .nav-items {\n    padding: 3%;\n    display: flex;\n    justify-content: space-around;\n    list-style: none;\n    background-color: #E0E0E0; }\n  #app .app .home {\n    background: url(" + __webpack_require__(258) + ") no-repeat;\n    width: 100px;\n    height: 100px; }\n    #app .app .home:hover {\n      background: url(" + __webpack_require__(259) + ") no-repeat; }\n  #app .app .view-all {\n    background: url(" + __webpack_require__(260) + ") no-repeat;\n    width: 100px;\n    height: 100px; }\n    #app .app .view-all:hover {\n      background: url(" + __webpack_require__(261) + ") no-repeat; }\n  #app .app .copyright {\n    margin-top: 10%; }\n  #app .app .copyright-icon {\n    background: url(" + __webpack_require__(262) + ") no-repeat;\n    width: 24px;\n    height: 24px;\n    position: absolute;\n    margin-left: 84px;\n    margin-top: 4px; }\n  #app .main-contianer {\n    overflow: visible; }\n    #app .main-contianer .welcome-container {\n      margin-top: 50px; }\n      #app .main-contianer .welcome-container .title {\n        margin-bottom: 18px; }\n    #app .main-contianer .bottom {\n      margin-top: 15%; }\n", ""]);
 
 	// exports
 
@@ -45840,11 +45847,16 @@
 	module.exports = "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgaGVpZ2h0PSIxNTBweCIgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSIwIDAgMTQgMTkiIHdpZHRoPSIxNTBweCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczpza2V0Y2g9Imh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaC9ucyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjx0aXRsZS8+PGRlc2MvPjxkZWZzLz48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGlkPSJQYWdlLTEiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIj48ZyBmaWxsPSIjMDAxNDMxIiBpZD0iQ29yZSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTQyNS4wMDAwMDAsIC0yMTMuMDAwMDAwKSI+PGcgaWQ9ImZpbGUtdXBsb2FkIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg0MjUuMDAwMDAwLCAyMTMuNTAwMDAwKSI+PHBhdGggZD0iTTQsMTMgTDEwLDEzIEwxMCw3IEwxNCw3IEw3LDAgTDAsNyBMNCw3IEw0LDEzIFoiIGlkPSJTaGFwZSIvPjxyZWN0IGhlaWdodD0iMiIgaWQ9IlJlY3RhbmdsZS1wYXRoIiB3aWR0aD0iMTQiIHg9IjAiIHk9IjE1Ii8+PC9nPjwvZz48L2c+PC9zdmc+Cg=="
 
 /***/ },
-/* 257 */,
+/* 257 */
+/***/ function(module, exports) {
+
+	module.exports = "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgaWQ9IkxheWVyXzEiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDYxMiA3OTI7IiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCA2MTIgNzkyIiB4bWw6c3BhY2U9InByZXNlcnZlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMTUwcHgiIGhlaWdodD0iMTUwcHgiPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+Cgkuc3Qwe2ZpbGw6I0U0NDA2MTt9Cjwvc3R5bGU+PGc+PHBhdGggY2xhc3M9InN0MCIgZD0iTTU2MiwzOTZjMC0xNDEuNC0xMTQuNi0yNTYtMjU2LTI1NlM1MCwyNTQuNiw1MCwzOTZzMTE0LjYsMjU2LDI1NiwyNTZTNTYyLDUzNy40LDU2MiwzOTZMNTYyLDM5NnogTTM1Ni44LDM5NiAgIEw0NzUsNTE0LjJMNDI0LjIsNTY1TDMwNiw0NDYuOEwxODcuOCw1NjVMMTM3LDUxNC4yTDI1NS4yLDM5NkwxMzcsMjc3LjhsNTAuOC01MC44TDMwNiwzNDUuMkw0MjQuMiwyMjdsNTAuOCw1MC44TDM1Ni44LDM5NiAgIEwzNTYuOCwzOTZ6Ii8+PC9nPjwvc3ZnPgo="
+
+/***/ },
 /* 258 */
 /***/ function(module, exports) {
 
-	module.exports = "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGhlaWdodD0iMTAwcHgiIGlkPSJMYXllcl8xIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAxNiAxNjsiIHZlcnNpb249IjEuMSIgdmlld0JveD0iMCAwIDE2IDE2IiB3aWR0aD0iMTAwcHgiIHhtbDpzcGFjZT0icHJlc2VydmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxwYXRoIGQ9Ik0xNS40NSw3TDE0LDUuNTUxVjJjMC0wLjU1LTAuNDUtMS0xLTFoLTFjLTAuNTUsMC0xLDAuNDUtMSwxdjAuNTUzTDksMC41NTVDOC43MjcsMC4yOTcsOC40NzcsMCw4LDBTNy4yNzMsMC4yOTcsNywwLjU1NSAgTDAuNTUsN0MwLjIzOCw3LjMyNSwwLDcuNTYyLDAsOGMwLDAuNTYzLDAuNDMyLDEsMSwxaDF2NmMwLDAuNTUsMC40NSwxLDEsMWgzdi01YzAtMC41NSwwLjQ1LTEsMS0xaDJjMC41NSwwLDEsMC40NSwxLDF2NWgzICBjMC41NSwwLDEtMC40NSwxLTFWOWgxYzAuNTY4LDAsMS0wLjQzNywxLTFDMTYsNy41NjIsMTUuNzYyLDcuMzI1LDE1LjQ1LDd6Ii8+PC9zdmc+Cg=="
+	module.exports = "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGhlaWdodD0iMTAwcHgiIGlkPSJMYXllcl8xIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAxNiAxNjsiIGZpbGw9IiMwMDE0MzEiIHZlcnNpb249IjEuMSIgdmlld0JveD0iMCAwIDE2IDE2IiB3aWR0aD0iMTAwcHgiIHhtbDpzcGFjZT0icHJlc2VydmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxwYXRoIGQ9Ik0xNS40NSw3TDE0LDUuNTUxVjJjMC0wLjU1LTAuNDUtMS0xLTFoLTFjLTAuNTUsMC0xLDAuNDUtMSwxdjAuNTUzTDksMC41NTVDOC43MjcsMC4yOTcsOC40NzcsMCw4LDBTNy4yNzMsMC4yOTcsNywwLjU1NSAgTDAuNTUsN0MwLjIzOCw3LjMyNSwwLDcuNTYyLDAsOGMwLDAuNTYzLDAuNDMyLDEsMSwxaDF2NmMwLDAuNTUsMC40NSwxLDEsMWgzdi01YzAtMC41NSwwLjQ1LTEsMS0xaDJjMC41NSwwLDEsMC40NSwxLDF2NWgzICBjMC41NSwwLDEtMC40NSwxLTFWOWgxYzAuNTY4LDAsMS0wLjQzNywxLTFDMTYsNy41NjIsMTUuNzYyLDcuMzI1LDE1LjQ1LDd6Ii8+PC9zdmc+Cg=="
 
 /***/ },
 /* 259 */
@@ -46121,12 +46133,6 @@
 			URL.revokeObjectURL(oldSrc);
 	}
 
-
-/***/ },
-/* 264 */
-/***/ function(module, exports) {
-
-	module.exports = "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgaWQ9IkxheWVyXzEiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDYxMiA3OTI7IiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCA2MTIgNzkyIiB4bWw6c3BhY2U9InByZXNlcnZlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMTUwcHgiIGhlaWdodD0iMTUwcHgiPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+Cgkuc3Qwe2ZpbGw6I0U0NDA2MTt9Cjwvc3R5bGU+PGc+PHBhdGggY2xhc3M9InN0MCIgZD0iTTU2MiwzOTZjMC0xNDEuNC0xMTQuNi0yNTYtMjU2LTI1NlM1MCwyNTQuNiw1MCwzOTZzMTE0LjYsMjU2LDI1NiwyNTZTNTYyLDUzNy40LDU2MiwzOTZMNTYyLDM5NnogTTM1Ni44LDM5NiAgIEw0NzUsNTE0LjJMNDI0LjIsNTY1TDMwNiw0NDYuOEwxODcuOCw1NjVMMTM3LDUxNC4yTDI1NS4yLDM5NkwxMzcsMjc3LjhsNTAuOC01MC44TDMwNiwzNDUuMkw0MjQuMiwyMjdsNTAuOCw1MC44TDM1Ni44LDM5NiAgIEwzNTYuOCwzOTZ6Ii8+PC9nPjwvc3ZnPgo="
 
 /***/ }
 /******/ ]);
