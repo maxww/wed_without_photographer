@@ -27355,10 +27355,14 @@
 	          var image = new _Image2.default();
 	          image.title = file.name;
 	          image.src = this.result;
-	          console.log('preview', typeof image === 'undefined' ? 'undefined' : _typeof(image));
-	          if (self.previews.indexOf(image) === -1) {
+	          var alreadyInPreviews = self.previews.some(function (img) {
+	            return JSON.stringify(img) === JSON.stringify(image);
+	          });
+
+	          if (!alreadyInPreviews) {
 	            self.previews.push(image);
 	          }
+
 	          self.setState({ method: 'Total Selected Pictures: ', thumbnails: self.previews, filesNum: self.previews.length, message: "What You've Selected:", instruction: '' });
 	        });
 	        reader.readAsDataURL(file);
