@@ -13,10 +13,11 @@ export default class App extends React.Component {
     return (
       <div className="app">
         <ul className="nav-items">
-          <li><Link className="nav-item" to="/upload"><p className="upload"></p></Link></li>
+          <li><Link className="nav-item" to="/upload"><p className="home"></p></Link></li>
           <li><Link className="nav-item" to="/pictures"><p className="view-all"></p></Link></li>
         </ul>
         {this.props.children}
+        <div className="copyright-font copyright"><p className="copyright-icon"></p>2017 Christian and Taffy Photos Sharing App. All rights reserved. </div>
       </div>
     )
   }

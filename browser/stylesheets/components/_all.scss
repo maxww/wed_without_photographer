@@ -20,26 +20,40 @@
       justify-content: space-around;
       list-style: none;
       background-color: $mid-light-grey;
-
-      .upload {
-        background: url(../src/images/icon-upload.svg) no-repeat;
-        width: 100px;
-        height: 100px;
-        &:hover {
-          background: url(../src/images/icon-upload-blue.svg) no-repeat;
-        }
       }
 
-      .view-all {
-        background: url(../src/images/view.svg) no-repeat;
-        width: 100px;
-        height: 100px;
-        &:hover {
-          background: url(../src/images/view-blue.svg) no-repeat;
-        }
+    .home {
+      background: url(../src/images/icon_home.svg) no-repeat;
+      width: 100px;
+      height: 100px;
+      &:hover {
+        background: url(../src/images/icon_home_blue.svg) no-repeat;
       }
     }
+
+    .view-all {
+      background: url(../src/images/view.svg) no-repeat;
+      width: 100px;
+      height: 100px;
+      &:hover {
+        background: url(../src/images/view-blue.svg) no-repeat;
+      }
+    }
+
+    .copyright {
+      margin-top: 10%;
+    }
+    
+    .copyright-icon {
+      background: url(../src/images/copyright.png) no-repeat;
+      width: 24px;
+      height: 24px;
+      position: absolute;
+      margin-left: 84px;
+      margin-top: 4px;
+    }
   }
+
   .main-contianer {
     overflow: visible;
 
@@ -50,18 +64,7 @@
       }
     }
 
-    .upload-container {
 
-    }
-
-    .copyright-icon {
-      background: url(../src/images/copyright.png) no-repeat;
-      width: 24px;
-      height: 24px;
-      position: absolute;
-      margin-left: 84px;
-      margin-top: 4px;
-    }
     .bottom {
       margin-top: 15%;
     }

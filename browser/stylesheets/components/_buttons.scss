@@ -15,3 +15,18 @@
     height: 5%;
     font-size: 80%;
 }
+
+.add-btn, .upload-btn {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+
+}
+.add-btn {
+  background: url(../src/images/add_icon.svg) no-repeat;
+}
+
+.upload-btn {
+  background: url(../src/images/icon_upload.svg) no-repeat;
+  margin-left: 30%;
+}

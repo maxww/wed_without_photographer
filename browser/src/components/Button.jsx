@@ -17,5 +17,5 @@ export default class Button extends Component {
 Button.propTypes = {
     class: PropTypes.string,
     click : PropTypes.func.isRequired,
-    text: PropTypes.string.isRequired
+    text: PropTypes.string
 }

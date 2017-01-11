@@ -16,7 +16,7 @@ export default class Upload extends Component {
       method: '',
       filesNum: 0,
       thumbnails: [],
-      message: ""
+      message: "",
     }
     this.previews = [];
     this.toBeUploaded = [];
@@ -26,6 +26,7 @@ export default class Upload extends Component {
     this.previewFiles = this._previewFiles.bind(this);
     this.renderImages = this._renderImages.bind(this);
     this.edit = this._edit.bind(this);
+    this.showUploadButton = this._showUploadButton.bind(this);
   }
 
   render() {
@@ -41,8 +42,8 @@ export default class Upload extends Component {
           {this.renderImages()}
         </div>
         <div className="bottom">
-          <Button class="buttons" id="select-files" click={this.selectFiles} text="Select Files"/>
-          <Button class="buttons" type="submit" click={this.uploadFile} text="Upload Now"/>
+          <Button class="add-btn" id="select-files" click={this.selectFiles}/>
+          {this.showUploadButton()}
           <p>{this.state.status}</p>
         </div>
       </div>
@@ -69,6 +70,14 @@ export default class Upload extends Component {
         )
       }
     })
+  }
+
+  _showUploadButton () {
+    if (this.toBeUploaded.length) {
+      return (
+        <Button class="upload-btn" type="submit" click={this.uploadFile}/>
+      )
+    }
   }
 
   _selectFiles() {

@@ -15,7 +15,6 @@ export default class MainComponent extends React.Component {
           <p className="paragraph-font title">Thank you for sharing the pictures with us!</p>
         </div>
         <Upload/>
-        <div className="copyright-font"><p className="copyright-icon"></p>2017 Christian and Taffy Photos Sharing App. All rights reserved. </div>
       </div>
     )
   }
