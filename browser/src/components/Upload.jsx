@@ -58,17 +58,15 @@ export default class Upload extends Component {
       this.deleteImg = this._deleteImg.bind(this, index);
       if (!this.toBeUploaded.length) {
         return (
-          <div className="thumb-block" key={index}>
-            <Image class="thumb-image" src={file.src}/>
+          <div className="thumb-block-large" key={index}>
+            <Image class="thumb-image-large" src={file.src}/>
           </div>
         )
       } else {
         return (
-          <div className="thumb-block" key={index}>
-            <Image class="thumb-image" src={file.src}/>
-            <div>
-              <i className='delete-icon' onClick={this.deleteImg}></i>
-            </div>
+          <div className="thumb-block-large" key={index}>
+            <Image class="thumb-image-large" src={file.src}/>
+            <p className='delete-icon' onClick={this.deleteImg}></p>
           </div>
         )
       }
