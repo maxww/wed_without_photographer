@@ -26,7 +26,6 @@ export default class Upload extends Component {
     this.selectFiles = this._selectFiles.bind(this);
     this.previewFiles = this._previewFiles.bind(this);
     this.renderImages = this._renderImages.bind(this);
-    this.edit = this._edit.bind(this);
     this.showUploadButton = this._showUploadButton.bind(this);
   }
 
@@ -85,6 +84,10 @@ export default class Upload extends Component {
   }
 
   _selectFiles() {
+    if (!this.toBeUploaded.length) {
+      this.previews = [];
+      this.setState({thumbnails: []});
+    }
     const input = document.getElementById('upload');
     input.click();
   }
@@ -138,7 +141,7 @@ export default class Upload extends Component {
 
   _uploadFile() {
     let metadata = {};
-    this.setState({message: "What You Uploaded:"})
+    this.setState({message: "What You've Uploaded:"})
     this.toBeUploaded.forEach((file, id) => {
       metadata.contentType = file.type;
       const uploadTask = storageRef.child('images/' + file.name).put(file, metadata);
@@ -175,12 +178,9 @@ export default class Upload extends Component {
         if (this.uploaded.indexOf(imageFile) === -1) {
           this.uploaded.push(imageFile);
         }
-        this.setState({method: 'Total Uploaded Pictures: ', thumbnails: this.uploaded, filesNum: this.uploaded.length})
+        this.setState({method: 'Total Uploaded Pictures: ', thumbnails: this.uploaded, filesNum: this.uploaded.length, instruction: 'Thank you for sharing!'})
       });
     })
     this.toBeUploaded = [];
   }
-
-  _edit() {}
-
 }

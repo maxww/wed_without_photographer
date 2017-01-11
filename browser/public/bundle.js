@@ -27162,11 +27162,6 @@
 	            'p',
 	            { className: 'title-font title' },
 	            'Welcome'
-	          ),
-	          _react2.default.createElement(
-	            'p',
-	            { className: 'paragraph-font title' },
-	            'Thank you for sharing the pictures with us!'
 	          )
 	        ),
 	        _react2.default.createElement(_Upload2.default, null)
@@ -27258,7 +27253,6 @@
 	    _this.selectFiles = _this._selectFiles.bind(_this);
 	    _this.previewFiles = _this._previewFiles.bind(_this);
 	    _this.renderImages = _this._renderImages.bind(_this);
-	    _this.edit = _this._edit.bind(_this);
 	    _this.showUploadButton = _this._showUploadButton.bind(_this);
 	    return _this;
 	  }
@@ -27341,6 +27335,10 @@
 	  }, {
 	    key: '_selectFiles',
 	    value: function _selectFiles() {
+	      if (!this.toBeUploaded.length) {
+	        this.previews = [];
+	        this.setState({ thumbnails: [] });
+	      }
 	      var input = document.getElementById('upload');
 	      input.click();
 	    }
@@ -27399,7 +27397,7 @@
 	      var _this3 = this;
 
 	      var metadata = {};
-	      this.setState({ message: "What You Uploaded:" });
+	      this.setState({ message: "What You've Uploaded:" });
 	      this.toBeUploaded.forEach(function (file, id) {
 	        metadata.contentType = file.type;
 	        var uploadTask = _firebase.storageRef.child('images/' + file.name).put(file, metadata);
@@ -27435,14 +27433,11 @@
 	          if (_this3.uploaded.indexOf(imageFile) === -1) {
 	            _this3.uploaded.push(imageFile);
 	          }
-	          _this3.setState({ method: 'Total Uploaded Pictures: ', thumbnails: _this3.uploaded, filesNum: _this3.uploaded.length });
+	          _this3.setState({ method: 'Total Uploaded Pictures: ', thumbnails: _this3.uploaded, filesNum: _this3.uploaded.length, instruction: 'Thank you for sharing!' });
 	        });
 	      });
 	      this.toBeUploaded = [];
 	    }
-	  }, {
-	    key: '_edit',
-	    value: function _edit() {}
 	  }]);
 
 	  return Upload;
@@ -45773,7 +45768,7 @@
 
 
 	// module
-	exports.push([module.id, ".numbers {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  flex-wrap: wrap; }\n\n.buttons {\n  text-align: center;\n  background-color: #9E9E9E;\n  margin: 20px 10%;\n  width: 80%;\n  height: 5%;\n  font-size: 80%; }\n\n.add-btn, .upload-btn {\n  display: inline-block;\n  width: 150px;\n  height: 150px; }\n\n.add-btn {\n  background: url(" + __webpack_require__(255) + ") no-repeat; }\n\n.upload-btn {\n  background: url(" + __webpack_require__(256) + ") no-repeat;\n  margin-left: 30%; }\n\n.hidden {\n  display: none; }\n\n.preview {\n  width: 100%;\n  min-height: 30%;\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap; }\n\n.thumb-block {\n  margin: 8% auto;\n  width: 50%;\n  height: 20%;\n  overflow: hidden; }\n\n.thumb-block-large {\n  margin: 3%;\n  width: 44%;\n  height: 33%;\n  overflow: hidden; }\n\n.thumb-image {\n  height: 100%; }\n\n.thumb-image-large {\n  max-width: 100%;\n  max-height: 100%; }\n\n.mini-menu {\n  display: flex;\n  justify-content: flex-end; }\n\n.dropdown {\n  display: block;\n  margin: 5px 0 0 2px;\n  position: absolute;\n  background-color: #fcfcfc;\n  min-width: 160px;\n  height: 300px;\n  box-shadow: 5px 8px 16px 0 rgba(0, 0, 0, 0.2);\n  padding: 12px 16px; }\n\n@media only screen and (min-device-width: 320px) and (max-device-width: 773px) {\n  #app {\n    width: 100%; } }\n\n@media only screen and (min-device-width: 320px) and (max-device-width: 773px) and (orientation: portrait) {\n  #app {\n    font-size: 450%; }\n    #app .paragraph-font {\n      font-size: 74%; }\n    #app .category-font {\n      font-size: 80%; }\n    #app .copyright-font {\n      font-size: 40%; } }\n\n@media only screen and (min-device-width: 320px) and (max-device-width: 773px) and (orientation: landscape) {\n  #app {\n    font-size: 250%; } }\n\n.delete-icon {\n  width: 150;\n  height: 150px;\n  position: absolute;\n  background-image: url(" + __webpack_require__(257) + ");\n  background-repeat: no-repeat; }\n\n#app {\n  min-height: 100%;\n  padding: 0;\n  color: #001431;\n  font-family: muli;\n  text-align: center;\n  overflow: visible; }\n  #app .app .nav-items {\n    padding: 3%;\n    display: flex;\n    justify-content: space-around;\n    list-style: none;\n    background-color: #E0E0E0; }\n  #app .app .home {\n    background: url(" + __webpack_require__(258) + ") no-repeat;\n    width: 100px;\n    height: 100px; }\n    #app .app .home:hover {\n      background: url(" + __webpack_require__(259) + ") no-repeat; }\n  #app .app .view-all {\n    background: url(" + __webpack_require__(260) + ") no-repeat;\n    width: 100px;\n    height: 100px; }\n    #app .app .view-all:hover {\n      background: url(" + __webpack_require__(261) + ") no-repeat; }\n  #app .app .copyright {\n    margin-top: 10%; }\n  #app .app .copyright-icon {\n    background: url(" + __webpack_require__(262) + ") no-repeat;\n    width: 24px;\n    height: 24px;\n    position: absolute;\n    margin-left: 84px;\n    margin-top: 4px; }\n  #app .main-contianer {\n    overflow: visible; }\n    #app .main-contianer .welcome-container {\n      margin-top: 50px; }\n      #app .main-contianer .welcome-container .title {\n        margin-bottom: 18px; }\n    #app .main-contianer .bottom {\n      margin-top: 15%; }\n", ""]);
+	exports.push([module.id, ".numbers {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  flex-wrap: wrap; }\n\n.buttons {\n  text-align: center;\n  background-color: #9E9E9E;\n  margin: 20px 10%;\n  width: 80%;\n  height: 5%;\n  font-size: 80%; }\n\n.add-btn, .upload-btn {\n  display: inline-block;\n  width: 150px;\n  height: 150px; }\n\n.add-btn {\n  background: url(" + __webpack_require__(255) + ") no-repeat; }\n\n.upload-btn {\n  background: url(" + __webpack_require__(256) + ") no-repeat;\n  margin-left: 30%; }\n\n.hidden {\n  display: none; }\n\n.preview {\n  width: 100%;\n  min-height: 30%;\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap; }\n\n.thumb-block {\n  margin: 8% auto;\n  width: 50%;\n  height: 20%;\n  overflow: hidden; }\n\n.thumb-block-large {\n  margin: 3%;\n  width: 44%;\n  height: 33%;\n  overflow: hidden; }\n\n.thumb-image {\n  height: 100%; }\n\n.thumb-image-large {\n  max-width: 100%;\n  max-height: 100%; }\n\n.mini-menu {\n  display: flex;\n  justify-content: flex-end; }\n\n.dropdown {\n  display: block;\n  margin: 5px 0 0 2px;\n  position: absolute;\n  background-color: #fcfcfc;\n  min-width: 160px;\n  height: 300px;\n  box-shadow: 5px 8px 16px 0 rgba(0, 0, 0, 0.2);\n  padding: 12px 16px; }\n\n@media only screen and (min-device-width: 320px) and (max-device-width: 773px) {\n  #app {\n    width: 100%; } }\n\n@media only screen and (min-device-width: 320px) and (max-device-width: 773px) and (orientation: portrait) {\n  #app {\n    font-size: 450%; }\n    #app .paragraph-font {\n      font-size: 74%; }\n    #app .category-font {\n      font-size: 80%; }\n    #app .copyright-font {\n      font-size: 40%; } }\n\n@media only screen and (min-device-width: 320px) and (max-device-width: 773px) and (orientation: landscape) {\n  #app {\n    font-size: 250%; } }\n\n.delete-icon {\n  width: 150;\n  height: 150px;\n  position: absolute;\n  background-image: url(" + __webpack_require__(257) + ");\n  background-repeat: no-repeat; }\n\n#app {\n  min-height: 100%;\n  padding: 0;\n  color: #001431;\n  font-family: muli;\n  text-align: center;\n  overflow: visible; }\n  #app .app .nav-items {\n    padding: 3%;\n    display: flex;\n    justify-content: space-around;\n    list-style: none;\n    background-color: #E0E0E0; }\n  #app .app .home {\n    background: url(" + __webpack_require__(258) + ") no-repeat;\n    width: 100px;\n    height: 100px; }\n    #app .app .home:hover {\n      background: url(" + __webpack_require__(259) + ") no-repeat; }\n  #app .app .view-all {\n    background: url(" + __webpack_require__(260) + ") no-repeat;\n    width: 100px;\n    height: 100px; }\n    #app .app .view-all:hover {\n      background: url(" + __webpack_require__(261) + ") no-repeat; }\n  #app .app .copyright {\n    margin-top: 10%; }\n  #app .app .copyright-icon {\n    background: url(" + __webpack_require__(262) + ") no-repeat;\n    width: 24px;\n    height: 24px;\n    position: absolute;\n    margin-left: 84px;\n    margin-top: 4px; }\n  #app .main-contianer {\n    overflow: visible; }\n    #app .main-contianer .welcome-container {\n      margin-top: 50px; }\n    #app .main-contianer .bottom {\n      margin-top: 15%; }\n", ""]);
 
 	// exports
 

@@ -12,7 +12,6 @@ export default class MainComponent extends React.Component {
       <div className="main-contianer">
         <div className="welcome-container">
           <p className="title-font title">Welcome</p>
-          <p className="paragraph-font title">Thank you for sharing the pictures with us!</p>
         </div>
         <Upload/>
       </div>
